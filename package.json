@@ -1,0 +1,8 @@
+{
+  "name": "vuebberduck-debugger",
+  "version": "1.0.0",
+  "description": "Rubberduck Debugger, done in Vue JS",
+  "main": "index.js",
+  "author": "Graham Holtslander <gholtslander+github@vendasta.com>",
+  "license": "MIT"
+}
