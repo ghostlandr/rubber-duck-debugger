@@ -1,16 +1,19 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Rubber Duck Debugger</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
     </head>
     <body>
-        <div id="duck-root">
+        <div id="duck-root" class="pure-g">
             <name-picker v-on:newname="updateAuthorname"></name-picker>
             <chat-box v-on:newmessage="addNewMessage"></chat-box>
             <message-area v-bind:messages="messages"></message-area>
         </div>
 
-        <script src="https://unpkg.com/vue@next/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue@2.0.0-rc.8/dist/vue.min.js"></script>
         <script src="ducker.js"></script>
     </body>
 </html>
