@@ -6,7 +6,8 @@
         <title>Rubber Duck Debugger</title>
         <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
     </head>
-    <body>
+    <body style="width: 1000px; margin: 0 auto;">
+        <h2>The Magnificent Rubber Duck Debugger</h2>
         <div id="duck-root" class="pure-g">
             <name-picker v-on:newname="updateAuthorname"></name-picker>
             <chat-box v-on:newmessage="addNewMessage"></chat-box>

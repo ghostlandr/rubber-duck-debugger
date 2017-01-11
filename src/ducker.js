@@ -15,7 +15,7 @@
         <input type="text" v-model="username" id="username"/>
         <button type="submit" class="pure-button pure-button-primary">Change</button>
       </form>
-      <span v-show="!editingName" v-on:dblclick="editingName = true">Username: {{ username }}</span>
+      <span v-show="!editingName" v-on:dblclick="editingName = true">Username: {{ username }} (double click to change your username)</span>
     </div>
     `,
     computed: {
