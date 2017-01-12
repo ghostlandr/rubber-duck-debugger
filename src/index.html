@@ -5,16 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Rubber Duck Debugger</title>
         <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+        <link rel="stylesheet" href="stylin.css">
     </head>
-    <body style="width: 1000px; margin: 0 auto;">
+    <body>
         <h2>The Magnificent Rubber Duck Debugger</h2>
         <div id="duck-root" class="pure-g">
-            <name-picker v-on:newname="updateAuthorname"></name-picker>
+            <name-picker v-on:namechanged="updateAuthorname"></name-picker>
             <chat-box v-on:newmessage="addNewMessage"></chat-box>
             <message-area v-bind:messages="messages"></message-area>
         </div>
 
+        <div class="copyright">&copy;2017 Graham Holtslander - Inspired by <a href="//www.rubberduckdebugging.com">this great site</a></div>
         <script src="https://unpkg.com/vue@2.0.0-rc.8/dist/vue.min.js"></script>
+        <script src="components.js"></script>
         <script src="ducker.js"></script>
     </body>
 </html>

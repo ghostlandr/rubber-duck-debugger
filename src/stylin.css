@@ -1,0 +1,9 @@
+body {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: url(rubber-duck.jpg) top center no-repeat;
+}
+.copyright {
+  margin-top: 50px;
+}
