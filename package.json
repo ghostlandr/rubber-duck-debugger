@@ -1,8 +1,8 @@
 {
-  "name": "vuebberduck-debugger",
+  "name": "rubber-duck-debugger",
   "version": "1.0.0",
-  "description": "Rubberduck Debugger, done in Vue JS",
+  "description": "All of my Rubber Duck Debuggers, finally in one place!",
   "main": "index.js",
-  "author": "Graham Holtslander <gholtslander+github@vendasta.com>",
+  "author": "Graham Holtslander <menello@gmail.com>",
   "license": "MIT"
 }
