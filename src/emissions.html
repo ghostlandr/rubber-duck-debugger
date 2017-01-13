@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rubber Duck Debugger</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+        <link rel="stylesheet" href="stylin.css">
+    </head>
+    <body>
+        <h2>The Magnificent Rubber Duck Debugger</h2>
+        <div id="name-test-root" class="pure-g">
+            <name-picker v-on:namechanged="addToNames"></name-picker>
+            <div v-for="name in names" class="pure-u-1-1">
+                <div>{{ name|lowerCase }}</div>
+            </div>
+            <div v-for="name in capsNames" class="pure-u-1-1">
+                <div>{{ name }}</div>
+            </div>
+        </div>
+
+        <div class="copyright">&copy;2017 Graham Holtslander - Inspired by <a href="//www.rubberduckdebugging.com">this great site</a></div>
+        <script src="https://unpkg.com/vue@2.0.0-rc.8/dist/vue.min.js"></script>
+        <script src="vue/components.js"></script>
+        <script>
+        Vue.component('name-picker', {
+          data: function () {
+            return {
+              username: 'You',
+              editingName: false
+            }
+          },
+          template: `
+          <div class="pure-u-1-1">
+            <form v-on:submit.prevent="emitNewName" class="pure-form pure-form-stacked" style="display: inline-block">
+              <label for="username">Change your username:</label>
+              <input type="text" v-model="username" id="username"/>
+              <button type="submit" class="pure-button pure-button-primary">Emit</button>
+            </form>
+          </div>
+          `,
+          methods: {
+            emitNewName: function () {
+                this.$emit('namechanged', this.username);
+            }
+          }
+        });
+
+        const VM = new Vue({
+            el: '#name-test-root',
+            data: {
+                names: []
+            },
+            methods: {
+                addToNames: function (name) {
+                    this.names.push(name);
+                }
+            },
+            computed: {
+                capsNames: function () {
+                    return this.names.map(function (name) { return name.toUpperCase() });
+                }
+            },
+            watch: {
+                names: function (names) {
+                    // names is the latest version of the names array from above
+                    console.log('We just got a new name!', names[names.length - 1]);
+                }
+            },
+            filters: {
+                lowerCase: function(str) {
+                    return str.toLowerCase();
+                }
+            }
+        });
+        VM.$data.names.push('blah');
+        VM.$data.names.push('bloop');
+        // compare this to KnockoutJS:
+
+        /*
+            el -> ko.applyBindings(el, ourViewModel);
+            Hard (for humans) to tell where the view model is binding without finding the applyBindings statement
+
+            An example KO viewmodel might look like this:
+
+            var MyViewModel = Class.extend({
+                init: function (someParam) {
+                    var observed = ko.observable(someParam);  // <- explicitly observed, imperative code
+                    observed.subscribe(function () {
+                        // Imperatively set up a subscription
+                    })
+                }
+            })
+        */
+        </script>
+    </body>
+</html>
