@@ -10,14 +10,15 @@
     <body>
         <h2>The Magnificent Rubber Duck Debugger</h2>
         <div id="duck-root" class="pure-g">
-            <name-picker v-on:namechanged="updateAuthorname"></name-picker>
-            <chat-box v-on:newmessage="addNewMessage"></chat-box>
-            <message-area v-bind:messages="messages"></message-area>
+            <name-picker class="pure-u-1-1"></name-picker>
+            <chat-box class="pure-u-1-1"></chat-box>
+            <message-area class="pure-u-1-1" params="messages: messages"></message-area>
         </div>
 
         <div class="copyright">&copy;2017 Graham Holtslander - Inspired by <a href="//www.rubberduckdebugging.com">this great site</a></div>
         <script src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
         <script src="https://rawgit.com/rniemeyer/knockout-postbox/master/build/knockout-postbox.js"></script>
+        <script src="duckcore/core.js"></script>
         <script src="ko/components.js"></script>
         <script src="ko/ducker.js"></script>
     </body>

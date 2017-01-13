@@ -1,18 +1,5 @@
-(function (Vue) {
+(function (Vue, duck) {
   'use strict';
-
-  const duckPhrases = [
-    "Hmmm.",
-    "Okay.",
-    "I see.",
-    "Alright.",
-    "Interesting.",
-    "OK",
-    "I'm with you.",
-    "Following.",
-    "Huh.",
-    "Got it."
-  ];
 
   new Vue({
     el: '#duck-root',
@@ -32,15 +19,12 @@
           clearTimeout(this.timeout);
         }
         this.timeout = setTimeout(function () {
-          this.addMessage('Duck', this.pickDuckMessage());
+          this.addMessage('Duck', duck.pickMessage());
         }.bind(this), 2000);
-      },
-      pickDuckMessage: function () {
-        return duckPhrases[(Math.floor(Math.random() * duckPhrases.length))];
       },
       updateAuthorname: function (newName) {
         this.authorName = newName;
       }
     }
   });
-})(window.Vue);
+})(window.Vue, window.duck);

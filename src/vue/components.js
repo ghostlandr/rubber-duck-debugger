@@ -53,7 +53,7 @@
   Vue.component('message-area', {
     props: ['messages'],
     template: `
-  <div v-bind:style="styleObject" class="pure-u-1-1">
+  <div class="pure-u-1-1 message-area">
     <div v-for="message in messages">
       <div style="clear: both">
         <span style="float:left;">{{ message.authorName }}: {{message.message}}</span>
@@ -61,17 +61,6 @@
       </div>
     </div>
   </div>
-  `,
-    data: function () {
-      return {
-        styleObject: {
-          border: "1px solid #DADADA",
-          height: "500px",
-          padding: "5px",
-          "overflow-y": "scroll",
-          "background-color": "rgba(255,255,255,0.5)"
-        }
-      }
-    }
+  `
   });
 })(window.Vue);
