@@ -9,7 +9,8 @@
 
       // Component methods
       this.emitName = function () {
-        ko.postbox.publish('newname', this.username);
+        console.log(this.username());
+        ko.postbox.publish('newname', this.username());
         this.editingName(false);
       };
     },
