@@ -3,13 +3,15 @@
 
   ko.components.register('name-picker', {
     viewModel: function (params) {
+      // Observables
       this.username = ko.observable('You');
       this.editingName = ko.observable(false);
 
+      // Component methods
       this.emitName = function () {
         ko.postbox.publish('newname', this.username);
         this.editingName(false);
-      }
+      };
     },
     template: `
     <div>
@@ -60,5 +62,5 @@
       </div>
     </div>
     `
-  })
+  });
 })(window.ko);

@@ -1,10 +1,12 @@
 (function (ko, duck) {
   'use strict';
   function duckViewModel() {
+    // Observables and data
     this.authorName = ko.observable('You');
     this.messages = ko.observableArray();
     this.timeout = null;
 
+    // VM functions
     this.addMessage = function (author, message) {
       const date = new Date(Date.now()).toTimeString().split(" ")[0];
       this.messages.unshift({ authorName: author, message, timestamp: date });
